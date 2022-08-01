@@ -36,5 +36,8 @@ services:
       - ./redis.conf:/tmp/redis.conf
     ports:
       - "127.0.0.1:6382:6379"
+    expose:
+      - "6379"
+      - "6382"
     networks:
       - crawler
