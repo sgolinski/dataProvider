@@ -22,17 +22,10 @@ services:
 
   redis:
     image: redis:4.0
-    container_name: crawler_app
+    container_name: redis
     restart: always
-    hostname: crawler_app
-    command:
-      - 'redis-server'
-      - '--loglevel ${REDIS_LOGLEVEL:-warning}'
-      - '--databases 2'
-      - '--save 900 1'
-      - '--save 300 10'
-      - '--save 60 10000'
-      - '--maxmemory ${REDIS_MAXMEM:-50mb}'
+    hostname: redis
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
     volumes:
       - ./redis/data:/data
       - ./redis.conf:/usr/local/etc/redis/redis.conf
