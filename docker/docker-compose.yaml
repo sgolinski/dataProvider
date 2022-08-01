@@ -21,7 +21,7 @@ services:
     image: redis:4.0
     container_name: crawler_app
     restart: always
-    hostname: redislocal
+    hostname: crawler_app
     command:
       - 'redis-server'
       - '/tmp/redis.conf'
