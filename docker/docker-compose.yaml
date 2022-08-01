@@ -1,8 +1,11 @@
 version: "3.7"
 
 networks:
-  crawler:
-    driver: 'bridge'
+  node_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
 
 services:
   php-cli:
@@ -15,7 +18,7 @@ services:
     links:
       - redis
     networks:
-      - crawler
+      - node_net
 
   redis:
     image: redis:4.0
@@ -33,10 +36,13 @@ services:
       - '--maxmemory ${REDIS_MAXMEM:-50mb}'
     volumes:
       - ./redis/data:/data
-      - ./redis.conf:/tmp/redis.conf
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
     ports:
-      - "127.0.0.1:6379:6379"
+      - "6379:6379"
     expose:
       - "6379"
     networks:
-      - crawler
+      node_net:
+        ipv4_address: 172.28.1.4
