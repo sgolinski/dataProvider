@@ -1,0 +1,7 @@
+* * * * * php /mnt/app/public/coinmarketcap/index.php
+* * * * * php /mnt/app/public/coingecko/index.php
+*/5 * * * * php /mnt/app/public/dexTracker/index.php 50 50
+*/2 * * * * sleep 40; php /mnt/app/public/dexTracker/index.php 20 30
+*/2 * * * * php /mnt/app/public/dexTracker/index.php 10 30
+
+# always remeber the last line of a crontab file must eb an empty line
