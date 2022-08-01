@@ -27,7 +27,6 @@ services:
     hostname: crawler_app
     command:
       - 'redis-server'
-      - '/tmp/redis.conf'
       - '--loglevel ${REDIS_LOGLEVEL:-warning}'
       - '--databases 2'
       - '--save 900 1'
