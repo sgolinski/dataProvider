@@ -54,7 +54,7 @@ class Maker implements Token
     public function alertWithoutTaker(): string
     {
         return "Name: " . $this->getName()->asString() . PHP_EOL .
-            "Drop percent: " . $this->getPercentageChange()->asFloat() . '%' . PHP_EOL .
+            "Drop percent: -" . str_replace("-", "", (string)$this->getPercentageChange()->asFloat(),) . '%' . PHP_EOL .
             "Listing: " . $this->getUrl()->asString() . PHP_EOL .
             "Poocoin:  https://poocoin.app/tokens/" . $this->getAddress()->asString() . PHP_EOL .
             'Chain: ' . $this->getChain()->asString() . PHP_EOL;
