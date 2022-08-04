@@ -26,23 +26,35 @@ class CrawlerCmc extends AbstractCrawler implements Crawler
     private const SCRIPT = <<<EOF
 // get all DIV elements
 var items = document.querySelectorAll('div');
-var clickDiv = false;
+var firstClickDiv = false;
+
 for(const item of items) {
     // find the first div that contains the text 24h
     if (item.innerText == "24h") {
-        clickDiv = item;
-        break;
+        firstClickDiv = item;
+        break;   
     }
+
 }
 // click this div to show up the dropdown
-clickDiv.click();
-
-// now we get the new div
-var dropdown = clickDiv.nextSibling;
-
-// select the first button and click it (1h)
+firstClickDiv.click();
+var dropdown = firstClickDiv.nextSibling;
 dropdown.querySelector("button").click();
+
+var secondClickDiv = false;
+for(const item of items) {
+    // find the first div that contains the text 24h
+    if (item.innerText == "Top 100") {
+        secondClickDiv = item;   
+        break;
+    }
+
+}
+secondClickDiv.click();
+var secondDropdown = secondClickDiv.nextSibling;
+secondDropdown.querySelector("button:nth-of-type(3)").click();
 EOF;
+
 
     public function invoke(): void
     {
@@ -95,7 +107,7 @@ EOF;
                     ->findElement(WebDriverBy::cssSelector('td:nth-child(4)'))
                     ->getText();
                 $percent = PercentageChange::fromFloat((float)$percent);
-                if ($percent->asFloat() < 20.0) {
+                if ($percent->asFloat() < 19.0) {
                     continue;
                 }
 
@@ -104,7 +116,6 @@ EOF;
                     ->findElement(WebDriverBy::tagName('p'))
                     ->getText();
                 $name = Name::fromString($name);
-
                 $token = RedisReader::findKey($name->asString());
 
                 if ($token) {

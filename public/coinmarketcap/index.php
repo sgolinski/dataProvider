@@ -1,10 +1,9 @@
 <?php
 
 use DataProvider\Factory;
-use DataProvider\Datastore\Redis;
 use DataProvider\Writer\RedisWriter;
 
-require_once  '/mnt/app/vendor/autoload.php';
+require_once  'vendor/autoload.php';
 
 header("Content-Type: text/plain");
 $crawler = Factory::createCrawlerCmcService();
