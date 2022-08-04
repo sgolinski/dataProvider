@@ -171,7 +171,7 @@ EOF;
                 if (str_contains($cont, 'bsc')) {
                     $chain = Chain::fromString('bsc');
                     $address = trim(str_replace('/address/', '', $cont));
-                    $address = Address::fromString($cont);
+                    $address = Address::fromString($address);
                     $token = Factory::createMakerBuilder()->setMaker($token);
                     $returnCoins[] = $token->setAddress($address)->setChain($chain)->build();
                 }
