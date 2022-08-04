@@ -3,7 +3,7 @@
 use DataProvider\Factory;
 use DataProvider\Writer\RedisWriter;
 
-require_once  'vendor/autoload.php';
+require_once  '/mnt/app/vendor/autoload.php';
 
 header("Content-Type: text/plain");
 $crawler = Factory::createCrawlerCmcService();
