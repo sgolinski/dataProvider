@@ -107,7 +107,7 @@ EOF;
                     ->findElement(WebDriverBy::cssSelector('td:nth-child(4)'))
                     ->getText();
                 $percent = PercentageChange::fromFloat((float)$percent);
-                if ($percent->asFloat() < 19.0) {
+                if ($percent->asFloat() < 1.0) {
                     continue;
                 }
 
@@ -170,8 +170,7 @@ EOF;
                 }
                 if (str_contains($cont, 'bsc')) {
                     $chain = Chain::fromString('bsc');
-                    $address = trim(str_replace('/address/', '', $cont));
-                    $address = Address::fromString($address);
+                    $address = Address::fromString(str_replace('https://bscscan.com/token/','', $cont));
                     $token = Factory::createMakerBuilder()->setMaker($token);
                     $returnCoins[] = $token->setAddress($address)->setChain($chain)->build();
                 }
