@@ -107,7 +107,7 @@ EOF;
                     ->findElement(WebDriverBy::cssSelector('td:nth-child(4)'))
                     ->getText();
                 $percent = PercentageChange::fromFloat((float)$percent);
-                if ($percent->asFloat() < 1.0) {
+                if ($percent->asFloat() < 19.0) {
                     continue;
                 }
 
