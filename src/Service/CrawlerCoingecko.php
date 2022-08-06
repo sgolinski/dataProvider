@@ -32,9 +32,6 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
             $this->coinsReadyForAlert = $this->assignChainAndAddress($currentRoundCoins);
 
         } catch (Exception $exception) {
-            $this->client->restart();
-            echo $exception->getFile() . ' ' . $exception->getLine() . PHP_EOL;
-        } finally {
             $this->client->close();
             $this->client->quit();
         }

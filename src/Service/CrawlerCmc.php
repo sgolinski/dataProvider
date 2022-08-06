@@ -67,9 +67,6 @@ EOF;
             $currentRoundCoins = $this->createTokensFromContent($content);
             $this->coinsReadyForAlert = $this->assignChainAndAddress($currentRoundCoins);
         } catch (Exception $exception) {
-            $this->client->restart();
-            echo $exception->getFile() . ' ' . $exception->getLine() . PHP_EOL;
-        } finally {
             $this->client->close();
             $this->client->quit();
         }
@@ -170,7 +167,7 @@ EOF;
                 }
                 if (str_contains($cont, 'bsc')) {
                     $chain = Chain::fromString('bsc');
-                    $address = Address::fromString(str_replace('https://bscscan.com/token/','', $cont));
+                    $address = Address::fromString(str_replace('https://bscscan.com/token/', '', $cont));
                     $token = Factory::createMakerBuilder()->setMaker($token);
                     $returnCoins[] = $token->setAddress($address)->setChain($chain)->build();
                 }

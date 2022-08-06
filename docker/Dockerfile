@@ -5,10 +5,15 @@ WORKDIR /mnt/app
 ENV PANTHER_NO_SANDBOX 1
 ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
 
+ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
+    PHP_OPCACHE_MAX_ACCELERATED_FILES="10000" \
+    PHP_OPCACHE_MEMORY_CONSUMPTION="192" \
+    PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
+
 COPY /opcache.ini /usr/local/etc/php/conf.d/
 
 RUN apk add libzip-dev libzip zip libxml2-dev \
-    && docker-php-ext-install zip xml
+    && docker-php-ext-install zip xml opcache
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
