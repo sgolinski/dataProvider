@@ -48,15 +48,6 @@ class Information
         }
     }
 
-    public function getToken(): Currency
-    {
-        return $this->token;
-    }
-
-    public function getPrice(): Price
-    {
-        return $this->price;
-    }
 
     private function extractPriceFrom(
         string $float

@@ -10,7 +10,7 @@ class Url
         string $url
     )
     {
-        $this->url =  $url;
+        $this->url = $url;
     }
 
     public static function fromString(

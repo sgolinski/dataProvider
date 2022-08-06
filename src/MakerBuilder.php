@@ -3,7 +3,6 @@
 namespace DataProvider;
 
 use DataProvider\Entity\Maker;
-use DataProvider\Entity\Taker;
 use DataProvider\ValueObjects\Address;
 use DataProvider\ValueObjects\Chain;
 use DataProvider\ValueObjects\Name;
@@ -45,11 +44,6 @@ class MakerBuilder
         return $this;
     }
 
-    public function setTaker(Taker $taker): self
-    {
-        $this->maker->setTaker($taker);
-        return $this;
-    }
 
     public function build(): Maker
     {

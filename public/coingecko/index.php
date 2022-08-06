@@ -1,7 +1,6 @@
 <?php
 
 use DataProvider\Factory;
-use DataProvider\Datastore\Redis;
 use DataProvider\ValueObjects\Url;
 use DataProvider\Writer\RedisWriter;
 
