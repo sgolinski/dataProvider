@@ -65,9 +65,9 @@ class ComposerStaticInit8247c26dcdd5d6f7e35222ac1071a3ca
         array (
             'Facebook\\WebDriver\\' => 19,
         ),
-        'D' => 
+        'A' => 
         array (
-            'DataProvider\\' => 13,
+            'App\\' => 4,
         ),
     );
 
@@ -201,7 +201,7 @@ class ComposerStaticInit8247c26dcdd5d6f7e35222ac1071a3ca
         array (
             0 => __DIR__ . '/..' . '/php-webdriver/webdriver/lib',
         ),
-        'DataProvider\\' => 
+        'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

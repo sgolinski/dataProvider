@@ -3,15 +3,6 @@
 namespace DataProvider\Service;
 
 use ArrayIterator;
-use DataProvider\Entity\Token;
-use DataProvider\Factory;
-use DataProvider\Reader\RedisReader;
-use DataProvider\ValueObjects\Address;
-use DataProvider\ValueObjects\Chain;
-use DataProvider\ValueObjects\Name;
-use DataProvider\ValueObjects\PercentageChange;
-use DataProvider\ValueObjects\Price;
-use DataProvider\ValueObjects\Url;
 use Exception;
 use Facebook\WebDriver\Remote\RemoteWebElement;
 use Facebook\WebDriver\WebDriverBy;

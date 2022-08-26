@@ -2,7 +2,7 @@
     "name": "szymon/dataprovider",
     "autoload": {
         "psr-4": {
-            "DataProvider\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
@@ -15,9 +15,6 @@
         "symfony/panther": "^2.0",
         "symfony/css-selector": "^6.0",
         "php-webdriver/webdriver": "^1.12",
-        "ext-curl": "*",
-        "ci/restclientbundle": "^2.0",
-        "predis/predis": "^2.0",
-        "alek13/slack": "^2.2"
+        "predis/predis": "^2.0"
     }
 }

@@ -38,5 +38,5 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Facebook\\WebDriver\\' => array($vendorDir . '/php-webdriver/webdriver/lib'),
-    'DataProvider\\' => array($baseDir . '/src'),
+    'App\\' => array($baseDir . '/src'),
 );
