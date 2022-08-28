@@ -1,5 +1,3 @@
 * * * * * php /mnt/app/public/coinmarketcap/index.php
-* * * * * php /mnt/app/public/coingecko/index.php
-
 
 # always remeber the last line of a crontab file must eb an empty line
