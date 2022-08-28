@@ -3,7 +3,6 @@
 namespace App\Infrastructure;
 
 use App\Application\FindAllNotComplete;
-use App\Application\FindAllNotCompleteCoingeckoTokens;
 use App\Domain\Coingecko\Token;
 
 class InMemoryRepository

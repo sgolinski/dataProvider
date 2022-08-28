@@ -2,7 +2,6 @@
 
 namespace App\Infrastructure;
 
-
 use App\Domain\Coingecko\Token;
 use App\Domain\ValueObjects\Name;
 use App\Domain\ValueObjects\Percentage;

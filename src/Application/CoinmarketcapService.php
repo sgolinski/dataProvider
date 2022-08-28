@@ -12,11 +12,6 @@ use Symfony\Component\Panther\Client;
 class CoinmarketcapService implements PantherService
 {
 
-    public function invoke(): void
-    {
-
-    }
-
     public function getContent()
     {
 
