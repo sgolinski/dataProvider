@@ -12,9 +12,7 @@ class Information
     public Currency $token;
     public Price $price;
 
-    private function __construct(
-        string $information
-    )
+    private function __construct(string $information)
     {
         $this->ensureInformationIsNotNull($information);
         $this->ensureInformationAfterExplodeHasTwoEntry($information);

@@ -6,16 +6,12 @@ class PercentageChange
 {
     private float $percent;
 
-    private function __construct(
-        float $percent
-    )
+    private function __construct(float $percent)
     {
         $this->percent = $percent;
     }
 
-    public static function fromFloat(
-        float $percent
-    ): self
+    public static function fromFloat(float $percent): self
     {
         return new self($percent);
     }

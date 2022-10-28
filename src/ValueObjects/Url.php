@@ -6,16 +6,12 @@ class Url
 {
     private string $url;
 
-    private function __construct(
-        string $url
-    )
+    private function __construct(string $url)
     {
         $this->url = $url;
     }
 
-    public static function fromString(
-        string $url
-    ): self
+    public static function fromString(string $url): self
     {
         return new self($url);
     }
@@ -24,6 +20,5 @@ class Url
     {
         return $this->url;
     }
-
 
 }

@@ -14,7 +14,6 @@ class MakerBuilder
 {
     private Maker $maker;
 
-
     public function setMaker(Maker $maker): self
     {
         $this->maker = $maker;
@@ -43,7 +42,6 @@ class MakerBuilder
         $this->maker->setAddress($address);
         return $this;
     }
-
 
     public function build(): Maker
     {

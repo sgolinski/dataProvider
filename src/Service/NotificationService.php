@@ -41,7 +41,6 @@ class NotificationService
         }
     }
 
-
     public function sendSlackMessage(
         array $currentRound, bool $isPotentialDrop = false
     ): void

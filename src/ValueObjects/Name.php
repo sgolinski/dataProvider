@@ -6,19 +6,13 @@ class Name
 {
     public string $name;
 
-
-    private function __construct(
-        string $name
-
-    )
+    private function __construct(string $name)
     {
         $name = $this->ensureIsLowerLetter($name);
         $this->name = $name;
     }
 
-    public static function fromString(
-        string $name
-    ): self
+    public static function fromString(string $name): self
     {
         return new self($name);
     }
@@ -28,9 +22,7 @@ class Name
         return $this->name;
     }
 
-    public function ensureIsLowerLetter(
-        string $str
-    ): string
+    public function ensureIsLowerLetter(string $str): string
     {
         return strtolower($str);
     }

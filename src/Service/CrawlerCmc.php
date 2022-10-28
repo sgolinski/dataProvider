@@ -181,9 +181,6 @@ EOF;
         return $returnCoins;
     }
 
-    /**
-     * @return array
-     */
     public function getCoinsReadyForAlert(): array
     {
         return $this->coinsReadyForAlert;

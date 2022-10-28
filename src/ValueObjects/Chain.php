@@ -6,16 +6,12 @@ class Chain
 {
     private string $chain;
 
-    private function __construct(
-        string $chain
-    )
+    private function __construct(string $chain)
     {
         $this->chain = $chain;
     }
 
-    public static function fromString(
-        string $chain
-    ): self
+    public static function fromString(string $chain): self
     {
         return new self($chain);
     }

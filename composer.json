@@ -19,5 +19,8 @@
         "ci/restclientbundle": "^2.0",
         "predis/predis": "^2.0",
         "alek13/slack": "^2.2"
+    },
+    "require-dev": {
+        "dbrekelmans/bdi": "^1.0"
     }
 }

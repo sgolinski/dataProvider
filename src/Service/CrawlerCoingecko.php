@@ -19,7 +19,7 @@ use Facebook\WebDriver\WebDriverBy;
 class CrawlerCoingecko extends AbstractCrawler implements Crawler
 {
 
-    public string $url = 'https://www.coingecko.com/en/crypto-gainers-losers?time=h1';
+    public string $url = 'https://www.coingecko.com/de/crypto-gainers-losers?time=h1&top=all';
 
     private array $coinsReadyForAlert = [];
 
@@ -44,7 +44,7 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
 
         try {
             $list = $this->client->getCrawler()
-                ->filter('body > div.container >div:nth-child(7)> div:nth-child(2)')
+                ->filter('body > div.container >div:nth-child(8)> div:nth-child(2)')
                 ->filter('#gecko-table-all > tbody > tr:nth-child(-n+20)')
                 ->getIterator();
 
@@ -67,6 +67,7 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
         foreach ($content as $webElement) {
             try {
                 assert($webElement instanceof RemoteWebElement);
+
                 $percent = $webElement
                     ->findElement(WebDriverBy::cssSelector('td:nth-child(4)'))
                     ->getText();
@@ -81,7 +82,6 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
                     ->findElement(WebDriverBy::tagName('div'))
                     ->findElement(WebDriverBy::cssSelector('div:nth-child(1)'))
                     ->getText();
-
 
                 $name = Name::fromString($name);
 
@@ -111,7 +111,6 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
                         ->setUrl($url)
                         ->setCreated()
                         ->build();
-
                 }
 
             } catch
@@ -121,6 +120,7 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
             }
         }
         echo 'Finish creating tokens from content ' . date('H:i:s', time()) . PHP_EOL;
+
         return $currentScrappedTokens;
     }
 
@@ -163,9 +163,6 @@ class CrawlerCoingecko extends AbstractCrawler implements Crawler
         return $returnCoins;
     }
 
-    /**
-     * @return array
-     */
     public function getCoinsReadyForAlert(): array
     {
         return $this->coinsReadyForAlert;

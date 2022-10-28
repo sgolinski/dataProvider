@@ -10,6 +10,11 @@ abstract class AbstractCrawler
     public string $url;
     protected ?string $script;
 
+    public function __construct()
+    {
+        $this->client =PantherClient::createChromeClient();
+    }
+
     public function getClient(): PantherClient
     {
         return $this->client;
@@ -18,7 +23,6 @@ abstract class AbstractCrawler
     protected function startClient(): void
     {
         echo "Start crawling " . date("F j, Y,  H:i:s") . PHP_EOL;
-        $this->client = PantherClient::createChromeClient();
         $this->client->start();
         $this->client->get($this->url);
     }

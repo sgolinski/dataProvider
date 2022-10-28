@@ -4,11 +4,10 @@ use DataProvider\Factory;
 use DataProvider\ValueObjects\Url;
 use DataProvider\Writer\RedisWriter;
 
-require_once  '/mnt/app/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 header("Content-Type: text/plain");
 
-$url = Url::fromString('https://www.coingecko.com/en/crypto-gainers-losers?time=h1');
 $crawler = Factory::createCrawlerCoingeckoService();
 $cmc = Factory::createNotificationService();
 

@@ -2,10 +2,8 @@
 
 namespace DataProvider\Reader;
 
-
 use DataProvider\Datastore\Redis;
 use DataProvider\Entity\Token;
-use DataProvider\ValueObjects\Name;
 
 class RedisReader implements Reader
 {
